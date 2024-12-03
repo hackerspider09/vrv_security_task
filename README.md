@@ -137,9 +137,9 @@ vrv_security_task/
     - **Most Accessed Endpoint**:
         ```
         Endpoint        Access Count
-        /login  13
-        /home   5
-        /about  5
+        /login          13          
+        /home           5           
+        /about          5
         /dashboard      3
         /register       2
         /profile        2

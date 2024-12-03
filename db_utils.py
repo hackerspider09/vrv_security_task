@@ -140,10 +140,20 @@ def print_query_results(rows, headers):
             rows (list): List of tuples representing query result rows.
             headers (list): List of column headers to be printed.
     """
-    # Print the header row with tabs
-    print("\t".join(headers))
-    
-    # Print the data rows with tabs
-    for row in rows:
-        print("\t".join(str(value) for value in row)) # Join values with tabs and print each row  
+    # Calculate the initial column widths based on the length of each header
+    column_widths = [len(header) for header in headers]
+    # print(column_widths)  # Debug: Print initial column widths for verification
 
+    # Iterate through each row to adjust column widths based on the length of the data
+    for row in rows:
+        for i, value in enumerate(row):
+            # Update the column width to be the maximum of the current width and the length of the current value
+            column_widths[i] = max(column_widths[i], len(str(value)))
+
+
+    # Print the header row, with each column left-aligned and spaced according to column widths
+    print("\t".join([header.ljust(column_widths[i]) for i, header in enumerate(headers)]))
+
+    # Print each data row, with values left-aligned and spaced according to column widths
+    for row in rows:
+        print("\t".join([str(value).ljust(column_widths[i]) for i, value in enumerate(row)]))
