@@ -79,7 +79,7 @@ The **Log Analysis Tool** is a Python-based application designed to parse server
 
 ## Project Structure
 ```
-log-analysis-tool/
+vrv_security_task/
 │
 ├── main.py                  # Entry point for the application
 ├── log_parser.py            # Module for parsing raw log entries
